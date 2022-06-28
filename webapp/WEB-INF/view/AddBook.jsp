@@ -12,9 +12,9 @@
     <br><br>
     author <form:input path="author"/>
     <br><br>
-    Napublishing_houseme <form:input path="publishing_house"/>
+    Papublishing_house <form:input path="publishing_house"/>
     <br><br>
-    Nimageame <form:input path="image"/>
+    image <form:input path="image"/>
     <br><br>
     <input type="submit" value="ok">
 

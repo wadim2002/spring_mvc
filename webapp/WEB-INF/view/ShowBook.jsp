@@ -2,8 +2,7 @@
 <%@ page contentType="text/html; charset=utf-8" language="java" pageEncoding="utf-8" %>
 <html>
 <body>
-<h2>My FIRST spring mvc project</h2>
-<h2>All Records</h2>
+<h2>Book card</h2>
 <br>
 <table>
     <tr>
