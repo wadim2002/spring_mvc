@@ -1,5 +1,6 @@
 package com.spring.mvc.architect.controller;
 
+import com.spring.mvc.architect.dao.BookDAO;
 import com.spring.mvc.architect.dao.BookDAOimpl;
 import com.spring.mvc.architect.dao.myEntityDAO;
 import com.spring.mvc.architect.entity.Book;
@@ -16,12 +17,13 @@ import java.util.List;
 @Controller
 public class ControllerBook {
     @Autowired
-    private BookDAOimpl BookDAO;
+    //private BookDAOimpl BookDAO;
+    private BookDAO myBookDAO;
 
-    @RequestMapping(path = "/")
+    @RequestMapping(path = "/book")
     public String showAllBooks(Model model){
 
-        List<Book> allBooks = BookDAO.getAllBook();
+        List<Book> allBooks = myBookDAO.getAllBook();
         // Добавили результаты во вью
         model.addAttribute("allbooks", allBooks);
         return "ShowAllBooks";
@@ -29,7 +31,7 @@ public class ControllerBook {
     @RequestMapping(path = "/showBook")
     public String showBook(@RequestParam("id") int id, Model model){
 
-        Book book = BookDAO.getBook(id);
+        Book book = myBookDAO.getBook(id);
         // Добавили результаты во вью
         model.addAttribute("onebook", book);
         System.out.println("Получили ID книги" + book.getID());
@@ -39,7 +41,7 @@ public class ControllerBook {
     @RequestMapping(path = "/deleteBook")
     public String deleteBook(@RequestParam("id") int id){
 
-        BookDAO.deleteBook(id);
+        myBookDAO.deleteBook(id);
         return "redirect:/";
     }
     @RequestMapping(path = "/addBook")
@@ -55,7 +57,7 @@ public class ControllerBook {
 
     @RequestMapping(path = "/saveBook")
     public String saveBooks(@ModelAttribute("newbook") Book book){
-        BookDAO.addBook(book);
+        myBookDAO.addBook(book);
         return "redirect:/";
     }
 }

@@ -17,7 +17,7 @@ public class MyController {
     @Autowired
     private myEntityDAO myEntityDAO;
 
-    @RequestMapping(path = "/aaa")
+    @RequestMapping(path = "/ent")
     public String showEntity(Model model){
 
 //        myEntity myentity = new myEntity();
